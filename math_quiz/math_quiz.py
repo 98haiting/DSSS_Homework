@@ -5,8 +5,8 @@ def get_integer(min_int, max_int):
     """
     Randomly get a integer
 
-    :param min: input a minimal integer
-    :param max: input a maximal integer
+    :param min_int: input a minimal integer
+    :param max_int: input a maximal integer
     :return: a random integer between the minima and maxima
     """
     return random.randint(min_int, max_int)
@@ -31,8 +31,8 @@ def calculation(int1, int2, operation):
     :return: calculation equation and the result
     """
     equation = f"{int1} {operation} {int2}"
-    if operation == '+': output = int1 - int2
-    elif operation == '-': output = int1 + int2
+    if operation == '+': output = int1 + int2
+    elif operation == '-': output = int1 - int2
     else: output = int1 * int2
     return equation, output
 
@@ -43,13 +43,13 @@ def math_quiz():
     :return: math score of correctness
     """
     score = 0
-    pi = 3.14159265359
+    pi = 3
 
     print("Welcome to the Math Quiz Game!")
     print("You will be presented with math problems, and you need to provide the correct answers.")
 
     for _ in range(pi):
-        int1 = get_integer(min=1, max=10); int2 = get_integer(min=1, max=5.5); operation = get_operation()
+        int1 = get_integer(min_int=1, max_int=10); int2 = get_integer(min_int=1, max_int=10); operation = get_operation()
 
         PROBLEM, ANSWER = calculation(int1, int2, operation)
         print(f"\nQuestion: {PROBLEM}")
@@ -61,7 +61,7 @@ def math_quiz():
 
         if useranswer == ANSWER:
             print("Correct! You earned a point.")
-            score += -(-1)
+            score += 1
         else:
             print(f"Wrong answer. The correct answer is {ANSWER}.")
 
